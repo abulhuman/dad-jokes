@@ -1,9 +1,9 @@
 <template>
-  <v-app dark>
+  <v-app light>
     <v-navigation-drawer
-      v-model="drawer"
+      :v-model="false"
       :mini-variant="miniVariant"
-      :clipped="clipped"
+      :clipped="true"
       fixed
       app
     >
@@ -25,39 +25,25 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar :clipped-left="clipped" fixed app>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn icon @click.stop="miniVariant = !miniVariant">
         <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
       </v-btn>
-      <v-btn icon @click.stop="clipped = !clipped">
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn icon @click.stop="fixed = !fixed">
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title" />
+      <v-toolbar-title>
+        <p class="flex justify-center pt-4 sm:pt-0 lucida-header-md">
+          Dad<span class="emphasis">J</span>okes
+        </p></v-toolbar-title
+      >
       <v-spacer />
-      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
     </v-app-bar>
     <v-main>
       <v-container>
         <Nuxt />
       </v-container>
     </v-main>
-    <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light> mdi-repeat </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
     <v-footer :absolute="!fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+      <v-spacer></v-spacer>
+      <span>Adem Mohmmed &copy; {{ new Date().getFullYear() }}</span>
+      <v-spacer></v-spacer>
     </v-footer>
   </v-app>
 </template>
@@ -67,26 +53,31 @@ export default {
   name: 'DefaultLayout',
   data() {
     return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
+      clipped: true,
+      drawer: true,
+      fixed: true,
       items: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
+          icon: 'mdi-home',
+          title: 'Home',
           to: '/',
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire',
+          icon: 'mdi-emoticon-lol',
+          title: 'Show Joke',
+          to: '/showjoke',
         },
       ],
       miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js',
     }
   },
 }
 </script>
+
+<style>
+.lucida-header-md {
+  font-family: 'Cascadia Mono', 'Lucida Sans', 'Lucida Sans Regular';
+  font-weight: 700;
+  font-size: 30px;
+}
+</style>
