@@ -22,7 +22,12 @@ export default {
     }
   },
   async created() {
-    await this.$store.dispatch('jokeStore/fetchAFewRandomJokes')
+    try {
+      await this.$store.dispatch('jokeStore/fetchAFewRandomJokes')
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(error)
+    }
   },
 }
 </script>
