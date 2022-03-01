@@ -1,4 +1,4 @@
-import { Commit } from 'Vuex'
+import { Commit } from 'vuex'
 import AxiosService from '~/AxiosService'
 import Joke from '~/types/Joke'
 import State from '~/types/State'
