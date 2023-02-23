@@ -21,7 +21,7 @@
     "vue": "^3.2.45",
     "vue-server-renderer": "^2.7.14",
     "vue-template-compiler": "^2.7.14",
-    "vuetify": "^2.6.12",
+    "vuetify": "^3.1.6",
     "vuex": "4.1.0",
     "webpack": "^5.75.0"
   },
